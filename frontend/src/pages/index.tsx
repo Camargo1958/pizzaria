@@ -21,6 +21,7 @@ export default function Home() {
           <Button type="submit" loading={false}>
             Acessar
           </Button>
+          <a className={styles.text}>Não possui uma conta? Cadastre-se</a>
         </form>
       </div>
     </div>
