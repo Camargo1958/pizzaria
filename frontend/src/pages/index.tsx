@@ -23,7 +23,15 @@ export default function Home() {
 
   async function handleLogin(event:FormEvent) {
     event.preventDefault();
+    if(email === '' || password === ''){
+      alert("PREENCHA OS DADOS!");
+      return;
+    }
+    setLoading(true);
+
     await signIn(data);
+
+    setLoading(false);
   }
 
   return (
@@ -38,7 +46,7 @@ export default function Home() {
         <form onSubmit={handleLogin}>
           <Input placeholder='Digite seu email' type="text" value={email} onChange={(e) => setEmail(e.target.value)}/>
           <Input placeholder='Sua senha' type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
-          <Button type="submit" loading={false}>
+          <Button type="submit" loading={loading}>
             Acessar
           </Button>
           <Link href="/signup">
