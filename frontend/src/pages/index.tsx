@@ -5,6 +5,7 @@ import logoImg from '../../public/logo.svg'
 import styles from '../../styles/home.module.scss'
 import {Input} from '../components/ui/Input'
 import {Button} from '../components/ui/Button'
+import { toast } from 'react-toastify'
 import Link from 'next/link'
 import {AuthContext} from '../contexts/AuthContext'
 
@@ -24,7 +25,7 @@ export default function Home() {
   async function handleLogin(event:FormEvent) {
     event.preventDefault();
     if(email === '' || password === ''){
-      alert("PREENCHA OS DADOS!");
+      toast.warning("Preencha todos os dados!");
       return;
     }
     setLoading(true);
